@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:crypto_coins_list/features/crypto_list/bloc/crypto_list_bloc.dart';
 import 'package:crypto_coins_list/repositories/crypto_coins/crypto_coins.dart';
 import 'package:flutter/material.dart';
@@ -84,7 +83,7 @@ class _CryptoListScreenState extends State<CryptoListScreen> {
                   ),
               );
             }
-            return const CircularProgressIndicator();
+            return const Center(child: CircularProgressIndicator());
           },
         ),
       ),
