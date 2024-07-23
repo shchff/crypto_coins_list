@@ -10,7 +10,7 @@ class CryptoCoinsListApp extends StatelessWidget {
     return MaterialApp(
       title: 'Crypto Coins List',
       theme: darkTheme,
-      routes: routes
+      routes: routes,
     );
   }
 }
