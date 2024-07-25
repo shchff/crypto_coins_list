@@ -5,19 +5,27 @@ import 'package:talker_flutter/talker_flutter.dart';
 
 import 'router/router.dart';
 
-class CryptoCoinsListApp extends StatelessWidget {
+class CryptoCoinsListApp extends StatefulWidget {
   const CryptoCoinsListApp({super.key});
 
   @override
+  State<CryptoCoinsListApp> createState() => _CryptoCoinsListAppState();
+}
+
+class _CryptoCoinsListAppState extends State<CryptoCoinsListApp> {
+  final _appRouter = AppRouter();
+
+  @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       title: 'Crypto Coins List',
       theme: darkTheme,
-      routes: routes,
-      navigatorObservers: [
-        TalkerRouteObserver(GetIt.I<Talker>())
-      ],
+      routerConfig: _appRouter.config(
+        navigatorObservers: () => [
+          TalkerRouteObserver(GetIt.I<Talker>())
+        ],
+      ),
     );
   }
 }
