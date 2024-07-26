@@ -11,10 +11,10 @@ import 'package:hive/hive.dart';
 import 'package:talker_bloc_logger/talker_bloc_logger.dart';
 import 'package:talker_dio_logger/talker_dio_logger.dart';
 import 'package:talker_flutter/talker_flutter.dart';
+
 import 'crypto_coins_list_app.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
   final talker = Talker();
   GetIt.I.registerSingleton(talker);
   GetIt.I<Talker>().debug('Talker started...');
@@ -59,7 +59,10 @@ void main() async {
     (details) => GetIt.I<Talker>().handle(details.exception, details.stack);
 
   runZonedGuarded(
-    () => runApp(const CryptoCoinsListApp()), 
+    () {
+      WidgetsFlutterBinding.ensureInitialized();
+      runApp(const CryptoCoinsListApp());
+    }, 
     (error, stack) => GetIt.I<Talker>().handle(error, stack)
   );
   

@@ -16,8 +16,3 @@ class AppRouter extends _$AppRouter {
     AutoRoute(page: CryptoCoinRoute.page),
   ];
 }
-
-// final routes ={
-//   '/':(context) => const CryptoListScreen(),
-//   '/coin': (context) => const CryptoCoinScreen(),
-// };
